@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="~/css/stylesheet.css" type="text/css" />
+    <title>Customer Form</title>
+</head>
+<body style="background-color:black">
+    <form method="post">
+        <span>
+            <p class="headers">
+                <legend style="color:dodgerblue">Field 1</legend>
+            </p>
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Field1Message))
+            {
+                <div style="color:red">@ViewBag.Field1Message</div>
+                <label for="Field1"></label>
+                <input type="number" required name="field1" id=" field1" class="fields" value="" style="border-color: red;" />
+            }
+            else
+            {
+                <label for="Field1"></label>
+                <input type="number" name="field1" class="fields" id="field1" value="" />
+            }
+
+        </span>
+
+        <span>
+            <p class="headers">
+                <legend style="color:dodgerblue">Field 2</legend>
+            </p>
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Field2Message))
+            {
+                <div style="color:red">@ViewBag.Field2Message</div>
+                <label for="Field2"></label>
+                <input type="text" name="field2" id=" field2" class="fields" value="" style="border-color: red;" />
+            }
+            else
+            {
+                <label for="Field2"></label>
+                <input type="text" name="field2" class="fields" id=" field2" value="" />
+            }
+
+        </span>
+        <span>
+            <p class="headers">
+                <legend style="color:dodgerblue">Field 3</legend>
+            </p>
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Field3Message))
+            {
+                <div style="color:red">@ViewBag.Field3Message</div>
+                <label for="Field3"></label>
+                <input type="text" name="field3" id=" field3" class="fields" value="" style="border-color: red;" />
+            }
+            else
+            {
+                <label for="Field3"></label>
+                <input type="text" name="field3" class="fields" id="field3" value="" />
+            }
+        </span>
+        <span>
+            <p class="headers">
+                <legend style="color:dodgerblue">Field 4</legend>
+            </p>
+            @if (!string.IsNullOrWhiteSpace(ViewBag.Field4Message))
+            {
+                <div style="color:red">@ViewBag.Field4Message</div>
+                <label for="Field4"></label>
+                <input type="number" name="field4" id=" field4" class="fields" value="" style="border-color: red;" />
+            }
+            else
+            {
+                <label for="Field4"></label>
+                <input type="number" name="field4" class="fields" id=" field4" value="" />
+            }
+        </span>
+        <br />
+        <hr />
+        <div>
+            <input type="submit" class="submit" value="Submit" />
+        </div>
+    </form>
+    <br />
+    <br />
+    @if (ViewBag.Pvn != null)
+    {
+<div style="color:dodgerblue" class="TotalPrice">
+    <h4>Kopēja summa: @Math.Round(ViewBag.Pvn,2) € bez PVN</h4>
+    <h4>PVN: @Math.Round(ViewBag.WithoutPvn, 2) €</h4>
+</div>
+    }
+</body>
+</html>
